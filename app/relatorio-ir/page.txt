@@ -12,7 +12,7 @@ export default function DeclaracaoIRPage() {
 
   useEffect(() => {
     // Endpoint que você criará para retornar os dados mastigados para o IR
-    fetch("https://appcalculoemissao-2c6b30e79caa.herokuapp.com/relatorio-ir")
+    fetch("https://relatorioir-e9fc6ed37199.herokuapp.com/relatorio-ir")
       .then((res) => res.json())
       .then((json) => {
         setData(json);
