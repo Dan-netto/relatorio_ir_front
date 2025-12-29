@@ -117,12 +117,12 @@ export default function DeclaracaoIRPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.carteira_ir.filter((i:any) => i.Dividendo > 0).map((item: any, idx: number) => (
+                  {data.carteira_ir.filter((i:any) => i.dividendos > 0).map((item: any, idx: number) => (
                     <tr key={idx} className="border-b">
                       <td className="p-2 font-mono text-xs">{item.CNPJ}</td>
                       <td className="p-2 text-xs">{item.Razao_Social}</td>
                       <td className="p-2 text-right font-bold text-green-700">
-                        R$ {item.Dividendo.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        R$ {item.dividendos.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                       </td>
                     </tr>
                   ))}
@@ -148,12 +148,12 @@ export default function DeclaracaoIRPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.carteira_ir.filter((i:any) => i.Juros_Sobre_Capital_Proprio > 0).map((item: any, idx: number) => (
+                  {data.carteira_ir.filter((i:any) => i.juros_sobre_capital_proprio > 0).map((item: any, idx: number) => (
                     <tr key={idx} className="border-b">
                       <td className="p-2 font-mono text-xs">{item.CNPJ}</td>
                       <td className="p-2 text-xs">{item.Razao_Social}</td>
                       <td className="p-2 text-right font-bold text-orange-700">
-                        R$ {item.Juros_Sobre_Capital_Proprio.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
+                        R$ {item.juros_sobre_capital_proprio.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                       </td>
                     </tr>
                   ))}
