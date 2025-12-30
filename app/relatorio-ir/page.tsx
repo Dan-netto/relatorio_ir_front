@@ -9,12 +9,14 @@ export default function DeclaracaoIRPage() {
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
+  const [anoReferencia, setAnoReferencia] = useState('----');
 
   useEffect(() => {
     // Endpoint que você criará para retornar os dados mastigados para o IR
     fetch("https://relatorioir-e9fc6ed37199.herokuapp.com/relatorio-ir")
       .then((res) => res.json())
       .then((json) => {
+	setAnoReferencia(json.ano_referencia);
         setData(json);
         setIsLoading(false);
       })
@@ -37,7 +39,7 @@ export default function DeclaracaoIRPage() {
     <div className="max-w-6xl mx-auto p-4 space-y-6">
       <header className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold text-slate-900">Auxiliar de Declaração IRPF 2025</h1>
-        <p className="text-slate-500 text-sm">Ano-calendário 2024 | Posição em 31/12/2024</p>
+        <p className="text-slate-500 text-sm">Ano-calendário {anoReferencia} | Posição em 31/12/{anoReferencia}</p>
         <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg flex items-center gap-3">
           <AlertCircle className="text-blue-500" />
           <p className="text-xs text-blue-700">
@@ -84,7 +86,7 @@ export default function DeclaracaoIRPage() {
                       </div>
                     </div>
                     <div className="flex flex-col justify-end">
-                      <p className="text-gray-500 text-xs">Situação em 31/12/2024 (R$)</p>
+                      <p className="text-gray-500 text-xs">Situação em 31/12/{anoReferencia} (R$)</p>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-lg font-bold">
                           R$ {item.total_investido.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
